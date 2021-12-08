@@ -1,0 +1,105 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="Style.css">
+    <title>Laboratorio</title>
+</head>
+<body>
+    <script>
+        function GuardarPaciente(nombre,apellido,cedula,correo,telefono,direccion,padecimiento,genero){
+            var datos = {"NombrePaciente" : nombre,
+                         "ApellidoPaciente" : apellido,
+                         "CedulaPaciente" : cedula,
+                         "CorreoPaciente" : correo,
+                         "TelefonoPaciente" : telefono,
+                         "DireccionPaciente" : direccion,
+                         "PadecimientoPaciente" : padecimiento,
+                         "GeneroPaciente" : genero};
+            $.ajax({
+                url: "Guardar Paciente.php",
+                type: "POST",
+                data: datos,
+                beforeSend: function(){
+                    $('#respuesta').html("Procesando, espere por favor...");
+                },
+                fail: function(){
+                    $('#respuesta').html("Error al agregar el Paciente");
+                },
+                success: function(){
+                    $('#respuesta').html(Response);
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
+        function MostrarPaciente(){
+            $.ajax({
+                url: "Mostrar Paciente.php",
+                type: "POST",
+                beforeSend: function(){
+                    $('#respuesta').html("Procesando, espere por favor...");
+                },
+                fail: function(){
+                    $('#respuesta').html("Error al agregar el Paciente");
+                },
+                success: function(){
+                    $('#respuesta').html(Response);
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
+    </script>
+    <div class="nav">
+        <a href="index.html" class="navButtoms">Agregar Paciente</a>
+        <a href="Agregar Examen.html" class="navButtoms">Agregar Examen</a>
+        <a href="" class="navButtoms">Agregar Resultados</a>
+    </div>
+    <div class="Box">
+        <h1>Agregar Paciente</h1>
+        <form action="">
+            <div class="DataBox">
+                <div>
+                    <h2>Nombre:</h2>
+                    <input type="text" class="DataInput" id="NombrePaciente">
+                </div>
+                <div
+                    ><h2>Apellido:</h2>
+                    <input type="text" class="DataInput" id="ApellidoPaciente">
+                </div>
+                <div>
+                    <h2>Cedula:</h2>
+                    <input type="text" class="DataInput" id="CedulaPaciente">
+                </div>
+                <div>
+                    <h2>Correo:</h2>
+                    <input type="text" class="DataInput" id="CorreoPaciente">
+                </div>
+                <div>
+                    <h2>Telefono:</h2>
+                    <input type="text" class="DataInput" id="TelefonoPaciente">
+                </div>
+                <div>
+                    <h2>Direccion:</h2>
+                    <input type="text" class="DataInput" id="DireccionPaciente">
+                </div>
+                <div>
+                    <h2>Padecimiento:</h2>
+                   <input type="text" class="DataInput" id="PadecimientoPaciente">
+                </div>
+                <div>
+                    <h2>Genero:</h2>
+                   <input type="text" class="DataInput" id="GeneroPaciente">
+                </div>
+            </div>
+            <button onclick="GuardarPaciente($('#NombrePaciente').val(), $('#ApellidoPaciente').val(), $('#CedulaPaciente').val(), $('#CorreoPaciente').val(), $('#DireccionPaciente').val(), $('#PadecimientoPaciente').val(), $('#GeneroPaciente').val())">Agregar</button>
+            <button onclick="MostrarPaciente()">Mostrar Paciente</button>
+        </form>
+    </div>
+</body>
+</html>

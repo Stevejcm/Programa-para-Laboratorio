@@ -1,0 +1,54 @@
+body {
+    background: rgb(224,223,224);
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 35%, rgba(255,255,255,1) 100%);
+    margin: 0px;
+    border-style: solid;
+    border-color: black;
+}
+.nav {
+    text-align: center;
+    padding: 20px;
+    background: rgb(224,223,224);
+    background: linear-gradient(0deg, rgba(224,223,224,1) 0%, rgba(247,247,247,1) 35%, rgba(255,255,255,1) 100%);
+    border-style: solid;
+    border-color: black;
+}
+.nav .navButtoms{
+    text-decoration: none;
+    text-align: center;
+    margin-right: 2vw;
+    font-size: 1.7vmax;
+    color: black;
+}
+.Box {
+    text-align: center;
+    color: white;
+}
+.Box h1{
+    font-size: 3.5vmax;
+}
+.DataBox {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 1vmax;
+}
+.DataBox .Datainput{
+    border-color: white;
+    font-size: 1.5vmax;
+}
+.DataBox2 {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-gap: 1vmax;
+    margin-right: 2vw;
+}
+.DataBox2 .Datainput{
+    border-color: white;
+    font-size: 1.5vmax;
+}
+form button{
+    padding: 0.5vmax;
+    margin-top: 5vh;
+}
